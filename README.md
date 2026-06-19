@@ -19,3 +19,34 @@ codespa+    1640  0.0  0.0   2800  1892 ?        Ss   14:15   0:00 /bin/sh
 root        1685  0.0  0.0   2800  1824 ?        Ss   14:15   0:00 /bin/sh
 codespa+    5152  0.0  0.0   6112  2008 ?        S    14:23   0:00 sleep 1
 codespa+    5154  0.0  0.0  11324  4488 pts/0    R+   14:23   0:00 ps aux
+
+
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ which ls
+/usr/bin/ls
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls -l /bin
+lrwxrwxrwx 1 root root 7 Apr 22  2024 /bin -> usr/bin
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cd ~
+@Utkarsh-262003 ➜ ~ $ mkdir myscripts
+@Utkarsh-262003 ➜ ~ $ cd myscripts
+@Utkarsh-262003 ➜ ~/myscripts $ echo 'echo "Hello from Ani, this is my own command!"' > hello
+@Utkarsh-262003 ➜ ~/myscripts $ ls
+hello
+@Utkarsh-262003 ➜ ~/myscripts $ cat hello
+echo "Hello from Ani, this is my own command!"
+@Utkarsh-262003 ➜ ~/myscripts $ hello
+bash: hello: command not found
+@Utkarsh-262003 ➜ ~/myscripts $ pwd
+/home/codespace/myscripts
+@Utkarsh-262003 ➜ ~/myscripts $ ./hello
+bash: ./hello: Permission denied
+@Utkarsh-262003 ➜ ~/myscripts $ ls -l hello
+-rw-r--r-- 1 codespace codespace 47 Jun 19 14:49 hello
+@Utkarsh-262003 ➜ ~/myscripts $ chmod +x hello
+@Utkarsh-262003 ➜ ~/myscripts $ ls -l hello
+-rwxr-xr-x 1 codespace codespace 47 Jun 19 14:49 hello
+@Utkarsh-262003 ➜ ~/myscripts $ ./hello
+Hello from Ani, this is my own command!
+@Utkarsh-262003 ➜ ~/myscripts $ export PATH="$HOME/myscripts:$PATH"
+@Utkarsh-262003 ➜ ~/myscripts $ cd ~
+@Utkarsh-262003 ➜ ~ $ hello
+Hello from Ani, this is my own command!
