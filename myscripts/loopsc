@@ -129,3 +129,43 @@ done < people.txt
 ani is 22, lives in noida
 rohan is 25, lives in delhi
 @Utkarsh-262003 ➜ /tmp $ 
+
+
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls
+README.md  cd  linux-practice  myscripts
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls -la
+total 32
+drwxrwxrwx+ 6 codespace root      4096 Jun 24 17:15 .
+drwxr-xrwx+ 5 codespace root      4096 Jun 11 13:34 ..
+drwxrwxrwx+ 8 codespace root      4096 Jun 24 17:53 .git
+-rw-rw-rw-  1 codespace root      4214 Jun 19 15:07 README.md
+drwxrwxrwx+ 3 codespace codespace 4096 Jun 24 17:15 cd
+drwxrwxrwx+ 3 codespace codespace 4096 Jun 11 15:12 linux-practice
+drwxrwxrwx+ 2 codespace codespace 4096 Jun 23 18:05 myscripts
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ chmod 766 myscripts
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ 
+
+
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ pwd
+/workspaces/devops-learning
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cd myscipts
+bash: cd: myscipts: No such file or directory
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cd myscripts
+@Utkarsh-262003 ➜ /workspaces/devops-learning/myscripts (main) $ nano deploy.sh
+@Utkarsh-262003 ➜ /workspaces/devops-learning/myscripts (main) $ ./deploy.sh
+bash: ./deploy.sh: Permission denied
+@Utkarsh-262003 ➜ /workspaces/devops-learning/myscripts (main) $ chmod u+x deploy.sh
+@Utkarsh-262003 ➜ /workspaces/devops-learning/myscripts (main) $ ./deploy.sh
+Starting Deploy....
+./deploy.sh: line 5: cd: /tmp/deploy-target: No such file or directory
+ERROR: target dir missing
+@Utkarsh-262003 ➜ /workspaces/devops-learning/myscripts (main) $ echo $?
+1
+@Utkarsh-262003 ➜ /workspaces/devops-learning/myscripts (main) $ mkdir -p /tmp/deploy-target
+@Utkarsh-262003 ➜ /workspaces/devops-learning/myscripts (main) $ ./deploy.sh
+Starting Deploy....
+Now inside the target, deploying...
+Deploy complete.
+@Utkarsh-262003 ➜ /workspaces/devops-learning/myscripts (main) $ echo $?
+0
+@Utkarsh-262003 ➜ /workspaces/devops-learning/myscripts (main) $ 
