@@ -1,0 +1,31 @@
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ grep "^$(whoami):" /etc/passwd
+codespace:x:1000:1000::/home/codespace:/bin/bash
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ sudo grep "^$(whoami):" /etc/shadow
+codespace:!:20523:0:99999:7:::
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls -l /etc/passwd /etc/shadow
+-rw-r--r-- 1 root root   1115 Mar 11 12:11 /etc/passwd
+-rw-r----- 1 root shadow  603 Mar 11 12:11 /etc/shadow
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ sudo useradd -m rahul
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ grep "^rahul:" /etc/passwd
+rahul:x:1001:1002::/home/rahul:/bin/sh
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ grep "rahul" /etc/group
+rahul:x:1002:
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls -ld /home/rahul
+drwxr-x--- 2 rahul rahul 4096 Jul  2 15:19 /home/rahul
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ sudo groupadd devs
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ sudo usermod -aG devs rahul
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ groups rahul
+rahul : rahul devs
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ sudo chown root:devs /srv/battleroom/deploy.sh
+
+
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ echo "secret" > /tmp/paradox.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ chmod 077 /tmp/paradox.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cat /tmp/paradox.txt
+cat: /tmp/paradox.txt: Permission denied
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ 
+
+
+
+
+sudo rm /tmp/paradox.txt
