@@ -90,4 +90,77 @@ file01.txt file02.txt file03.txt file04.txt file05.txt file06.txt file07.txt fil
 @Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ touch file{01..20}.txt
 @Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ ls
 file01.txt  file03.txt  file05.txt  file07.txt  file09.txt  file11.txt  file13.txt  file15.txt  file17.txt  file19.txt
-file02.txt  file04.txt  file06.txt  file08.txt  file10.txt 
+file02.txt  file04.txt  file06.txt  file08.txt  file10.txt
+
+
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ for f in file{01..20}.txt; do echo "$f"; done
+file01.txt
+file02.txt
+file03.txt
+file04.txt
+file05.txt
+file06.txt
+file07.txt
+file08.txt
+file09.txt
+file10.txt
+file11.txt
+file12.txt
+file13.txt
+file14.txt
+file15.txt
+file16.txt
+file17.txt
+file18.txt
+file19.txt
+file20.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ f=file07.txt; echo ${f#file}
+echo ${f%.txt}
+07.txt
+file07
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ echo ${f#file%.txt}
+file07.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ echo ${f#file} | ${f%.txt}
+bash: file07: command not found
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ file=file07.txt; start_gone=${f#file}
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ end_gone=${start_gone%.txt}
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ echo "$end_gone"
+07
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ n=$end_gone
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ echo $((10#$n))
+7
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ for f in file{01..20}.txt; do
+  start_gone=${f#file}
+  n=${start_gone%.txt}
+  echo $((10#$n)) > "$f"
+done
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cat file07.txt
+7
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cat file15.txt
+15
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls lab/one/a/
+file01.txt  file03.txt  file05.txt  file07.txt  file09.txt  file11.txt  file13.txt  file15.txt  file17.txt  file19.txt
+file02.txt  file04.txt  file06.txt  file08.txt  file10.txt  file12.txt  file14.txt  file16.txt  file18.txt  file20.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls *.txt
+file01.txt  file03.txt  file05.txt  file07.txt  file09.txt  file11.txt  file13.txt  file15.txt  file17.txt  file19.txt
+file02.txt  file04.txt  file06.txt  file08.txt  file10.txt  file12.txt  file14.txt  file16.txt  file18.txt  file20.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cd lab/one/a
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ for f in file{01..20}.txt; do
+  start_gone=${f#file}
+  n=${start_gone%.txt}
+  echo $((10#$n)) > "$f"
+done
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ cd ..
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/one (main) $ ls
+a  b
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/one (main) $ cd ..
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ cd ..
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls
+README.md  file01.txt  file03.txt  file05.txt  file07.txt  file09.txt  file11.txt  file13.txt  file15.txt  file17.txt  file19.txt  lab             myscripts
+cd         file02.txt  file04.txt  file06.txt  file08.txt  file10.txt  file12.txt  file14.txt  file16.txt  file18.txt  file20.txt  linux-practice  project
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ rm file{01..20}.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls
+README.md  cd  lab  linux-practice  myscripts  project
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cat lab/one/a/file07.txt
+7
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ 
