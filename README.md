@@ -50,3 +50,44 @@ Hello from Ani, this is my own command!
 @Utkarsh-262003 ➜ ~/myscripts $ cd ~
 @Utkarsh-262003 ➜ ~ $ hello
 Hello from Ani, this is my own command!
+
+
+M1. In one command, create this entire tree: lab/ containing one, two, three, each containing a and b.
+@Utkarsh-262003 ➜ /workspaces/devops-learning/project (main) $ lsa
+bash: lsa: command not found
+@Utkarsh-262003 ➜ /workspaces/devops-learning/project (main) $ ls
+config  docs  src
+@Utkarsh-262003 ➜ /workspaces/devops-learning/project (main) $ cd ..
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls
+README.md  cd  lab  linux-practice  myscripts  project
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cd lab
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ ls
+one  three  two
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ cd one/a
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ echo {01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20z]
+{01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20z]
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ echo {01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20}
+01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ touch {01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20}
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ ls
+01  02  03  04  05  06  07  08  09  10  11  12  13  14  15  16  17  18  19  20
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ rm -r {01..20}
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ ls
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ ls -la
+total 8
+drwxrwxrwx+ 2 codespace codespace 4096 Jul 13 15:07 .
+drwxrwxrwx+ 4 codespace codespace 4096 Jul 13 14:50 ..
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ pwd
+/workspaces/devops-learning/lab/one/a
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ echo {01..20}.txt
+01.txt 02.txt 03.txt 04.txt 05.txt 06.txt 07.txt 08.txt 09.txt 10.txt 11.txt 12.txt 13.txt 14.txt 15.txt 16.txt 17.txt 18.txt 19.txt 20.txt
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ touch {01..20}.txt
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ ls
+01.txt  02.txt  03.txt  04.txt  05.txt  06.txt  07.txt  08.txt  09.txt  10.txt  11.txt  12.txt  13.txt  14.txt  15.txt  16.txt  17.txt  18.txt  19.txt  20.txt
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ rm -r {01..20}.txt
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ echo file{01..20}.txt
+file01.txt file02.txt file03.txt file04.txt file05.txt file06.txt file07.txt file08.txt file09.txt file10.txt file11.txt file12.txt file13.txt file14.txt file15.txt file16.txt file17.txt file18.txt file19.txt file20.txt
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ touch file{01..20}.txt
+@Utkarsh-262003 ➜ .../devops-learning/lab/one/a (main) $ ls
+file01.txt  file03.txt  file05.txt  file07.txt  file09.txt  file11.txt  file13.txt  file15.txt  file17.txt  file19.txt
+file02.txt  file04.txt  file06.txt  file08.txt  file10.txt 
