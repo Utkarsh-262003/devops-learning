@@ -255,3 +255,35 @@ rm: cannot remove '/tmp/vault/treasure.txt': Permission denied
 
 
 fdsbjhu
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ sleep 3000 &
+[1] 1877
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+codespa+    1114    1086  0 19:19 pts/0    00:00:00 /bin/bash --init-file /vscode/bin/linux-x64/5264f2156cbcd7aea5fd004d29eaa10209155d66/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+codespa+    1877    1114  0 19:19 pts/0    00:00:00 sleep 3000
+codespa+    1973    1114  0 19:20 pts/0    00:00:00 ps -f
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ kill 1877
+[1]+  Terminated              sleep 3000
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+codespa+    1114    1086  0 19:19 pts/0    00:00:00 /bin/bash --init-file /vscode/bin/linux-x64/5264f2156cbcd7aea5fd004d29eaa10209155d66/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+codespa+    2170    1114  0 19:20 pts/0    00:00:00 ps -f
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ bash -c 'trap "echo IGNORING SIGTERM" TERM; echo my pid is $$; while true; do sleep 1; done' &
+[1] 2842
+my pid is 2842
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ kill 2842
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ IGNORING SIGTERM
+^C
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+codespa+    1114    1086  0 19:19 pts/0    00:00:00 /bin/bash --init-file /vscode/bin/linux-x64/5264f2156cbcd7aea5fd004d29eaa10209155d66/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+codespa+    2842    1114  0 19:21 pts/0    00:00:00 bash -c trap "echo IGNORING SIGTERM" TERM; echo my pid is $$; while true; do sleep 1; done
+codespa+    3438    2842  0 19:22 pts/0    00:00:00 sleep 1
+codespa+    3447    1114  0 19:22 pts/0    00:00:00 ps -f
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ kill -9 2842
+[1]+  Killed                  bash -c 'trap "echo IGNORING SIGTERM" TERM; echo my pid is $$; while true; do sleep 1; done'
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+codespa+    1114    1086  0 19:19 pts/0    00:00:00 /bin/bash --init-file /vscode/bin/linux-x64/5264f2156cbcd7aea5fd004d29eaa10209155d66/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+codespa+    3698    1114  0 19:23 pts/0    00:00:00 ps -f
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ 
