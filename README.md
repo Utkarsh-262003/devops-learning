@@ -287,3 +287,81 @@ UID          PID    PPID  C STIME TTY          TIME CMD
 codespa+    1114    1086  0 19:19 pts/0    00:00:00 /bin/bash --init-file /vscode/bin/linux-x64/5264f2156cbcd7aea5fd004d29eaa10209155d66/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
 codespa+    3698    1114  0 19:23 pts/0    00:00:00 ps -f
 @Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ 
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ sleep 3000 &
+[1] 1877
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+codespa+    1114    1086  0 19:19 pts/0    00:00:00 /bin/bash --init-file /vscode/bin/linux-x64/5264f2156cbcd7aea5fd004d29eaa10209155d66/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+codespa+    1877    1114  0 19:19 pts/0    00:00:00 sleep 3000
+codespa+    1973    1114  0 19:20 pts/0    00:00:00 ps -f
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ kill 1877
+[1]+  Terminated              sleep 3000
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+codespa+    1114    1086  0 19:19 pts/0    00:00:00 /bin/bash --init-file /vscode/bin/linux-x64/5264f2156cbcd7aea5fd004d29eaa10209155d66/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+codespa+    2170    1114  0 19:20 pts/0    00:00:00 ps -f
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ bash -c 'trap "echo IGNORING SIGTERM" TERM; echo my pid is $$; while true; do sleep 1; done' &
+[1] 2842
+my pid is 2842
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ kill 2842
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ IGNORING SIGTERM
+^C
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+codespa+    1114    1086  0 19:19 pts/0    00:00:00 /bin/bash --init-file /vscode/bin/linux-x64/5264f2156cbcd7aea5fd004d29eaa10209155d66/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+codespa+    2842    1114  0 19:21 pts/0    00:00:00 bash -c trap "echo IGNORING SIGTERM" TERM; echo my pid is $$; while true; do sleep 1; done
+codespa+    3438    2842  0 19:22 pts/0    00:00:00 sleep 1
+codespa+    3447    1114  0 19:22 pts/0    00:00:00 ps -f
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ kill -9 2842
+[1]+  Killed                  bash -c 'trap "echo IGNORING SIGTERM" TERM; echo my pid is $$; while true; do sleep 1; done'
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+codespa+    1114    1086  0 19:19 pts/0    00:00:00 /bin/bash --init-file /vscode/bin/linux-x64/5264f2156cbcd7aea5fd004d29eaa10209155d66/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+codespa+    3698    1114  0 19:23 pts/0    00:00:00 ps -f
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ git add .
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ git commit -m "LAB3"
+[main 032eb4a] LAB3
+ 1 file changed, 33 insertions(+), 1 deletion(-)
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 793 bytes | 793.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/Utkarsh-262003/devops-learning
+   f553f52..032eb4a  main -> main
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cd /workspaces/devops-learning/lab
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ mkdir pkg && cd pkg
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg (main) $ apt-cache policy acl
+acl:
+  Installed: 2.3.2-1build1.1
+  Candidate: 2.3.2-1build1.1
+  Version table:
+ *** 2.3.2-1build1.1 500
+        500 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages
+        100 /var/lib/dpkg/status
+     2.3.2-1build1 500
+        500 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg (main) $ echo $PATH
+/home/codespace/myscripts:/usr/local/rvm/gems/ruby-3.4.7/bin:/usr/local/rvm/gems/ruby-3.4.7@global/bin:/usr/local/rvm/rubies/ruby-3.4.7/bin:/vscode/bin/linux-x64/5264f2156cbcd7aea5fd004d29eaa10209155d66/bin/remote-cli:/home/codespace/.local/bin:/home/codespace/.dotnet:/home/codespace/nvm/current/bin:/home/codespace/.php/current/bin:/home/codespace/.python/current/bin:/home/codespace/java/current/bin:/home/codespace/.ruby/current/bin:/home/codespace/.local/bin:/usr/local/python/current/bin:/usr/local/py-utils/bin:/usr/local/jupyter:/usr/local/oryx:/usr/local/go/bin:/go/bin:/usr/local/sdkman/bin:/usr/local/sdkman/candidates/java/current/bin:/usr/local/sdkman/candidates/gradle/current/bin:/usr/local/sdkman/candidates/maven/current/bin:/usr/local/sdkman/candidates/ant/current/bin:/usr/local/rvm/gems/default/bin:/usr/local/rvm/gems/default@global/bin:/usr/local/rvm/rubies/default/bin:/usr/local/share/rbenv/bin:/usr/local/php/current/bin:/opt/conda/bin:/usr/local/nvs:/usr/local/share/nvm/versions/node/v24.14.0/bin:/usr/local/hugo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/share/dotnet:/home/codespace/.dotnet/tools:/usr/local/rvm/bin
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg (main) $ which getfacl
+/usr/bin/getfacl
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg (main) $ export PATH=/tmp
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg $ getfacl afterdir
+bash: getfacl: command not found
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg $ /usr/bin/getfacl afterdir
+getfacl: afterdir: No such file or directory
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg $ /usr/bin/getfacl
+Usage: getfacl [-aceEsRLPtpndvh] file ...
+Try `getfacl --help' for more information.
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg $ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg (main) $ /usr/bin/getfacl afterdir
+getfacl: afterdir: No such file or directory
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg (main) $ getfacl afterdir
+getfacl: afterdir: No such file or directory
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg (main) $ getfacl
+Usage: getfacl [-aceEsRLPtpndvh] file ...
+Try `getfacl --help' for more information.
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab/pkg (main) $ 
