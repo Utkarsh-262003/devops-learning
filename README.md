@@ -164,3 +164,93 @@ README.md  cd  lab  linux-practice  myscripts  project
 @Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cat lab/one/a/file07.txt
 7
 @Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ 
+
+
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ pwd
+/workspaces/devops-learning
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls
+README.md  cd  lab  linux-practice  myscripts  project
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cd lab
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ echo one/a file(02..20..2}.txt
+bash: syntax error near unexpected token `('
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ echo one/a/file{02..20..2}.txt
+one/a/file02.txt one/a/file04.txt one/a/file06.txt one/a/file08.txt one/a/file10.txt one/a/file12.txt one/a/file14.txt one/a/file16.txt one/a/file18.txt one/a/file20.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ cp one/a/file{02..20..2}.txt two/b/
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ ls two/b
+file02.txt  file04.txt  file06.txt  file08.txt  file10.txt  file12.txt  file14.txt  file16.txt  file18.txt  file20.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ seq 20 > /tmp/lines.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ head -n 7 /tmp/lines.txt | tail -n 1
+7
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ sed -n '7p' /tmp/lines.txt
+7
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ @Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ pwd
+/workspaces/devops-learning
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls
+README.md  cd  lab  linux-practice  myscripts  project
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ cd lab
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ echo one/a file(02..20..2}.txt
+bash: syntax error near unexpected token `('
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ echo one/a/file{02..20..2}.txt
+one/a/file02.txt one/a/file04.txt one/a/file06.txt one/a/file08.txt one/a/file10.txt one/a/file12.txt one/a/file14.txt one/a/file16.txt one/a/file18.txt one/a/file20.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ cp one/a/file{02..20..2}.txt two/b/
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ ls two/b
+file02.txt  file04.txt  file06.txt  file08.txt  file10.txt  file12.txt  file14.txt  file16.txt  file18.txt  file20.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ seq 20 > /tmp/lines.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ head -n 7 /tmp/lines.txt | tail -n 1
+7
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ sed -n '7p' /tmp/lines.txt
+7
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ git add .
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ git commit -m "head/tail"
+[main 0ba9635] head/tail
+ 10 files changed, 10 insertions(+)
+ create mode 100644 lab/two/b/file02.txt
+ create mode 100644 lab/two/b/file04.txt
+ create mode 100644 lab/two/b/file06.txt
+ create mode 100644 lab/two/b/file08.txt
+ create mode 100644 lab/two/b/file10.txt
+ create mode 100644 lab/two/b/file12.txt
+ create mode 100644 lab/two/b/file14.txt
+ create mode 100644 lab/two/b/file16.txt
+ create mode 100644 lab/two/b/file18.txt
+ create mode 100644 lab/two/b/file20.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ git push
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (15/15), 807 bytes | 115.00 KiB/s, done.
+Total 15 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/Utkarsh-262003/devops-learning
+   1c91ca2..0ba9635  main -> main
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ mkdir -p doomed/inner
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ cd doomed/inne
+bash: cd: doomed/inne: No such file or directory
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ cd doomed/inner
+@Utkarsh-262003 ➜ .../devops-learning/lab/doomed/inner (main) $ pwd
+/workspaces/devops-learning/lab/doomed/inner
+@Utkarsh-262003 ➜ .../devops-learning/lab/doomed/inner (main) $ rm -r ../../doomed
+@Utkarsh-262003 ➜ .../devops-learning/lab/doomed/inner $ pwd
+/workspaces/devops-learning/lab/doomed/inner
+@Utkarsh-262003 ➜ .../devops-learning/lab/doomed/inner $ touch test.txt
+touch: cannot touch 'test.txt': No such file or directory
+@Utkarsh-262003 ➜ .../devops-learning/lab/doomed/inner $ cd ..
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+@Utkarsh-262003 ➜ .../lab/doomed/inner/.. $ pwd
+/workspaces/devops-learning/lab/doomed/inner/..
+@Utkarsh-262003 ➜ .../lab/doomed/inner/.. $ ls
+@Utkarsh-262003 ➜ .../lab/doomed/inner/.. $ cd /workspaces/devops-learning/lab
+@Utkarsh-262003 ➜ /workspaces/devops-learning/lab (main) $ 
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ mkdir /tmp/vault
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ touch /tmp/vault/treasure.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ chmod 000 /tmp/vault
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ ls -l /tmp/vault/treasure.txt
+ls: cannot access '/tmp/vault/treasure.txt': Permission denied
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ rm /tmp/vault/treasure.txt
+rm: cannot remove '/tmp/vault/treasure.txt': Permission denied
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ chmod 755 /tmp/vault
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ rm /tmp/vault/treasure.txt
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ rmdir /tmp/vault
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ 
+
+
