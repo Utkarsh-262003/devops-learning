@@ -369,3 +369,26 @@ Try `getfacl --help' for more information.
 Gate cleared — all three patched, and #5 finally came out in the right language: PATH-findability plus both fixes in one breath. That's the sentence you say in the interview. Building your reference doc now.Verified documentation accuracy and prepared for deploymentVerified documentation accuracy and prepared for deploymentLab 6 closed. The reference doc covers everything we built tonight: the design derivation from the sleep-loop failures, the five-field syntax with all four operators and worked schedules, the DOM/DOW OR-trap, the PATH gotcha with your exact corrected phrasing, per-user crontabs and the spool, the redirection ordering walkthrough, the UTC wrinkle, the container detours (policy-rc.d, the systemd symlink preview), and a twist-case table where your two recurring misses — the "access" phrasing and the dropped month field — are flagged for the next recall gate.
 What you should feel good about from this session: you diagnosed "unrecognized service" vs "command not found" by who was speaking, proved cron's absence from two independent angles before installing, and caught your own drift explanation for the sleep loop without prompting. That's Lab 3 and Lab 4 knowledge firing in a new context, which is the whole point of the gates.
 Next session opens with the Lab 6 recall gate — expect the field order, */15, and the PATH sentence to come back cold. Sleep on it.
+
+
+
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ grep codespace /etc/passwd
+codespace:x:1000:1000::/home/codespace:/bin/bash
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ grep root /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ 
+
+
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ grep codespace /etc/passwd
+codespace:x:1000:1000::/home/codespace:/bin/bash
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ grep root /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ grep nologin /etc/passwd | head -5
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+@Utkarsh-262003 ➜ /workspaces/devops-learning (main) $ 
+
+
